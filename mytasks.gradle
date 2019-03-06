@@ -1,0 +1,5 @@
+task myTask{
+    doLast {
+        println("Hello! this is from mytasks side :D")
+    }
+}

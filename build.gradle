@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+}
+
+// Question1
+jar{
+    manifest{
+        attributes 'Main-Class':'com.gradle.Main'
+    }
+}
+
+// Question2
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'src/main/java2']
+        }
+    }
+}
+
+// Question3
+sourceSets {
+    main{
+        resources {
+            srcDirs = ['src/main/resources']
+            exclude 'file1.txt'
+        }
+    }
+}
+
+//Question4
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+      compile 'org.apache.commons:commons-lang3:3.8.1'
+}
+
+/*sourceSets{
+    main.java.srcDir "src/main"
+    test.java.srcDir "src/test"
+}*/
+
+jar{
+    from configurations.compile.collect{ zipTree it }
+}
+
+// Question5
+
+repositories {
+    jcenter()
+}
+
+
+// Question6
+apply from : 'mytasks.gradle'
+
+
+
+
+
